@@ -1,15 +1,11 @@
-<script setup lang="ts">
-
-const message = ref("Hello World");
-</script>
-
 <template>
-  <h1>{{ message }}</h1>
-  <MyButton/>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <router-view />
 </template>
 
-<style scoped></style>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+</style>
