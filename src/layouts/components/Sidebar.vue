@@ -1,5 +1,6 @@
 <script setup>
 import { useMenuStore } from '@/stores/modules/menu'
+import MenuItem from './MenuItem.vue'
 
 const menuStore = useMenuStore()
 </script>
@@ -12,24 +13,11 @@ const menuStore = useMenuStore()
     text-color="#fff"
     active-text-color="#409EFF"
   >
-    <template v-for="item in menuStore.menuList" :key="item.path">
-      <!-- 有子菜单 -->
-      <el-sub-menu v-if="item.children?.length" :index="item.path">
-        <template #title>{{ item.name }}</template>
-
-        <el-menu-item
-          v-for="child in item.children"
-          :key="child.path"
-          :index="child.path"
-        >
-          {{ child.name }}
-        </el-menu-item>
-      </el-sub-menu>
-
-      <!-- 无子菜单 -->
-      <el-menu-item v-else :index="item.path">
-        {{ item.name }}
-      </el-menu-item>
-    </template>
+    <!-- 🔥 只需要一层循环 -->
+    <MenuItem
+      v-for="item in menuStore.menuList"
+      :key="item.path"
+      :item="item"
+    />
   </el-menu>
 </template>
