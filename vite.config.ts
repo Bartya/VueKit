@@ -30,6 +30,7 @@ export default defineConfig({
       dts: 'src/components.d.ts', // TS 类型提示
     }),
   ],
+  
   resolve: {
     alias: {
       // 方式1: 使用 fileURLToPath（推荐）

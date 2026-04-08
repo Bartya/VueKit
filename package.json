@@ -13,8 +13,12 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.27",
     "element-plus": "^2.13.6",
     "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "postcss": "^8.5.9",
+    "postcss-loader": "^8.2.1",
     "vue": "^3.5.31",
     "vue-router": "^5.0.4"
   },

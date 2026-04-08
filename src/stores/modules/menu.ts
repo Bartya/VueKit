@@ -19,12 +19,18 @@ export const useMenuStore = defineStore('menu', () => {
   const setMenuList = (data: MenuItem[]) => {
     menuList.value = data
   }
+  const layoutMode = ref<'side' | 'top'>('side')
+  // 👉 切换布局
+  const toggleLayout = () => {
+    layoutMode.value = layoutMode.value === 'side' ? 'top' : 'side'
+  }
+
   // 👉 清空菜单
   const clearMenu = () => {
     menuList.value = []
   }
   // 👉 获取菜单
-  const fetachMenu = async () => {
+  const fetchMenu = async () => {
     loading.value = true
     const { data } = await getMenuAPI()
     setMenuList(data)
@@ -34,7 +40,11 @@ export const useMenuStore = defineStore('menu', () => {
     menuList,
     setMenuList,
     clearMenu,
-    fetachMenu,
+    fetchMenu,
     loading,
+    toggleLayout,
+    layoutMode
   }
+}, {
+  persist: true // 启用持久化
 })

@@ -6,12 +6,15 @@ defineProps<{
 
 <template>
   <!-- 有子菜单 -->
-  <el-sub-menu v-if="item.children && item.children.length" :index="item.path">
+  <el-sub-menu
+    v-if="item.children && item.children.length"
+    :index="item.path"
+    popper-class="top-popper"
+  >
     <template #title>
       <span>{{ item.name }}</span>
     </template>
 
-    <!-- 🔥 递归调用自己 -->
     <MenuItem
       v-for="child in item.children"
       :key="child.path"
