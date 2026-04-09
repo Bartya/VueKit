@@ -66,7 +66,7 @@ onMounted(() => {
 /* 内容区 */
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   background: #f5f7fa;
 }
 </style>

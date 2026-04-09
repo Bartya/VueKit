@@ -3,11 +3,12 @@ import { computed } from 'vue'
 import { useMenuStore } from '@/stores/modules/menu'
 import MenuItem from './MenuItem.vue'
 import { useRoute, useRouter } from 'vue-router'
-
+import { Setting } from '@element-plus/icons-vue' // 引入一个设置图标
 const menuStore = useMenuStore()
 const route = useRoute()
-const router = useRouter()
 
+// 控制字号弹窗显示
+const fontSizeDrawerVisible = ref(false)
 // --- 菜单展示逻辑 ---
 // 逻辑：前 8 个菜单正常展示
 const visibleMenus = computed(() => menuStore.menuList.slice(0, 8))
@@ -68,7 +69,16 @@ const handleLogout = () => {
 
       <!-- 3. 右侧：操作区域 -->
       <div class="right-box">
-        <div class="action-items">
+         <div class="action-items">
+          <!-- 字体设置按钮 -->
+          <el-tooltip content="界面设置" placement="bottom">
+            <el-button 
+              circle 
+              :icon="Setting" 
+              @click="fontSizeDrawerVisible = true" 
+            />
+          </el-tooltip>
+
           <el-button size="small" round @click="menuStore.toggleLayout()">
              {{ menuStore.layoutMode === 'top' ? '切换侧边菜单' : '切换顶部菜单' }}
           </el-button>
@@ -89,7 +99,7 @@ const handleLogout = () => {
           </template>
         </el-dropdown>
       </div>
-      
+       <FontSizeDrawer v-model="fontSizeDrawerVisible" />
     </div>
   </header>
 </template>
@@ -254,5 +264,21 @@ const handleLogout = () => {
 /* 移除 Element 默认聚焦框 */
 :deep(.el-tooltip__trigger:focus-visible) {
   outline: unset;
+}
+/* 针对新加的按钮稍微微调 */
+.action-items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 按钮样式覆盖，使其匹配你的深色 Header */
+:deep(.el-button.is-circle) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+:deep(.el-button.is-circle:hover) {
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 </style>

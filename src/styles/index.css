@@ -1,0 +1,20 @@
+/* src/styles/index.css */
+:root {
+  /* 这里的变量会被 Pinia 修改 */
+  --base-font-size: 14px; 
+}
+
+html {
+  font-size: var(--base-font-size);
+}
+
+body {
+  /* Element Plus 的基础字号也是参考 rem 或固定 px 的 */
+  /* 设置后，页面内大部分使用 rem 或继承的文字都会生效 */
+  font-size: 1rem; 
+}
+
+/* 如果你想强制 Element Plus 一些组件也跟着变 */
+.el-button, .el-input, .el-table {
+  font-size: inherit; 
+}
