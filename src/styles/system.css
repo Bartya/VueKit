@@ -1,4 +1,3 @@
-/* src/styles/index.css */
 :root {
   /* 这里的变量会被 Pinia 修改 */
   --base-font-size: 14px; 
@@ -14,7 +13,3 @@ body {
   font-size: 1rem; 
 }
 
-/* 如果你想强制 Element Plus 一些组件也跟着变 */
-.el-button, .el-input, .el-table {
-  font-size: inherit; 
-}

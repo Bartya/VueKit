@@ -10,7 +10,7 @@ const route = useRoute()
 <template>
   <div class="sidebar-container">
     <!-- 1. 侧边模式顶部的 Logo 区域 -->
-    <div  class="sidebar-logo">
+    <div class="sidebar-logo">
       <div class="logo-circle"><img src="@/assets/icon/icon.jpg" alt="" /></div>
       <span class="logo-text">Vue Kit</span>
     </div>
@@ -35,7 +35,7 @@ const route = useRoute()
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #262f3e; /* 高级深靛蓝 */
+  background-color: var(--layout-sidebar-bg); /* 使用变量 */
   /* 与 Header 保持一致 */
   transition: width 0.3s;
   border-right: none;
@@ -59,7 +59,7 @@ const route = useRoute()
   line-height: 50px !important;
   margin: 0 !important;
   /* 彻底移除悬浮岛 */
-  color: #a0a5ba !important;
+  color: var(--layout-text-color) !important;
   /* 未激活文字颜色 */
   padding-left: 20px !important;
   transition: all 0.3s ease;
@@ -68,8 +68,8 @@ const route = useRoute()
 /* 2. 鼠标悬停态 (Hover) */
 :deep(.el-menu-item:hover),
 :deep(.el-sub-menu__title:hover) {
-  color: #ffffff !important;
-  background-color: #313a4d !important;
+  color: var(--el-menu-hover-text-color) !important;
+  background-color: var(--layout-menu-active-bg) !important;
   /* 比背景稍亮一点 */
 }
 
@@ -103,7 +103,7 @@ const route = useRoute()
   padding: 0 16px;
   transition: width 0.3s ease; /* 菜单的宽度变化添加过渡 */
   gap: 12px;
-  background-color: #262f3e; /* 高级深靛蓝 */
+  background-color: var(--layout-sidebar-bg); /* 使用变量 */
   overflow: hidden;
 }
 
@@ -126,7 +126,7 @@ const route = useRoute()
 }
 
 .logo-text {
-  color: #fff;
+  color: var(--layout-text-color);
   font-size: 18px;
   font-weight: 700;
   white-space: nowrap;
@@ -134,7 +134,7 @@ const route = useRoute()
 
 /* 5. 子菜单展开后的背景 (体现层级) */
 :deep(.el-menu--inline) {
-  background-color: #1e2531 !important;
+  background-color: var(--layout-menu-active-bg) !important;
   /* 展开部分颜色加深 */
 }
 
@@ -147,7 +147,8 @@ const route = useRoute()
 }
 
 :deep(.el-menu-item.is-active .el-icon) {
-  color: #3b82f6 !important;
+  background-color: var(--layout-menu-active-bg) !important;
+  color: var(--el-color-primary) !important;
 }
 /* 7. 菜单折叠状态下的图标居中 */
 .el-menu--collapse :deep(.el-menu-item) {

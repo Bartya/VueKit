@@ -39,7 +39,7 @@ onMounted(() => {
 /* 默认侧边模式 */
 .sidebar {
   width: 200px;
-  color: #fff;
+  background-color: var(--layout-sidebar-bg); /* 侧边栏底色 */
   transition: all 0.3s;
 }
 
@@ -67,6 +67,13 @@ onMounted(() => {
 .content {
   flex: 1;
   padding: 10px;
-  background: #f5f7fa;
+    background: var(--layout-bg); /* 内容区底色 */
+    color: var(--content-text-color);
+}
+.my-sidebar {
+  /* 使用我们在 Store 中定义的 CSS 变量 */
+  background-color: var(--layout-sider-bg);
+  color: var(--layout-text-color);
+  transition: all 0.3s; /* 平滑切换过渡 */
 }
 </style>

@@ -1,0 +1,52 @@
+/* 如果你想强制 Element Plus 一些组件也跟着变 */
+.el-button, .el-input, .el-table {
+  font-size: inherit; 
+}
+
+/* --- 适配 Header 菜单弹出框的颜色 --- */
+
+/* 1. 设置整个弹出框的背景和边框 */
+.el-popper.theme-menu-popper {
+  background-color: var(--layout-header-bg) !important;
+  border: 1px solid var(--header-btn-border) !important;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 2. 设置弹出框内部菜单列表的背景 */
+.theme-menu-popper .el-menu--popup {
+  background-color: var(--layout-header-bg) !important;
+  padding: 5px 0 !important;
+}
+
+/* 3. 设置弹出菜单项的文字颜色 */
+.theme-menu-popper .el-menu-item,
+.theme-menu-popper .el-sub-menu__title {
+  color: var(--layout-text-color) !important;
+  background-color: transparent !important;
+}
+
+/* 4. 设置菜单项 Hover 时的背景色 */
+.theme-menu-popper .el-menu-item:hover,
+.theme-menu-popper .el-sub-menu__title:hover {
+  background-color: var(--header-btn-bg) !important;
+  color: var(--el-color-primary) !important;
+}
+
+/* 5. 设置菜单项 激活（选中）时的背景色 */
+.theme-menu-popper .el-menu-item.is-active {
+  background-color: var(--layout-menu-active-bg) !important;
+  color: var(--el-color-primary) !important;
+}
+
+/* 6. 修正弹出框小箭头颜色 */
+.el-popper.theme-menu-popper .el-popper__arrow::before {
+  background-color: var(--layout-header-bg) !important;
+  border: 1px solid var(--header-btn-border) !important;
+}
+
+.el-drawer{
+  background-color: var(--layout-header-bg) !important;
+}
+.el-drawer__header{
+  color: var(--layout-text-color);
+}
