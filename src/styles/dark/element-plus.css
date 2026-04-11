@@ -50,3 +50,7 @@
 .el-drawer__header{
   color: var(--layout-text-color);
 }
+
+.header-wrapper{
+     border-bottom: 1px solid var(--layout-menu-active-bg) !important;
+}
