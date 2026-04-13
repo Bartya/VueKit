@@ -206,18 +206,7 @@ const handleLogout = () => {
   gap: 12px;
 }
 
-/* 核心：动态按钮样式 (磨砂透明感) */
-:deep(.el-button--small),
-:deep(.el-button.is-circle) {
-  background-color: var(--header-btn-bg) !important;
-  border: 1px solid var(--header-btn-border) !important;
-  color: var(--layout-text-color) !important;
-  transition: all 0.3s;
-}
 
-:deep(.el-button:hover) {
-  background-color: var(--header-btn-border) !important;
-}
 
 /* 用户信息 */
 .user-info {

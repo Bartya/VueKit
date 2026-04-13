@@ -30,7 +30,20 @@ export default defineConfig({
       dts: 'src/components.d.ts', // TS 类型提示
     }),
   ],
-  
+    server: {
+    host: '0.0.0.0', // 允许局域网访问
+    port: 5173,      // 端口号
+    proxy: {
+      // 代理前缀：当请求路径以 /api 开头时，转发到目标服务器
+      '/api': {
+        target: 'http://corp.tongkaikj.com:9094/',
+        changeOrigin: true, // 允许跨域
+        // 如果后端接口本身不包含 /api 路径，则需要重写路径
+        // 例如：请求 /api/user -> 转发到 http://corp.tongkaikj.com:9094/user
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   resolve: {
     alias: {
       // 方式1: 使用 fileURLToPath（推荐）

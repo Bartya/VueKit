@@ -54,3 +54,45 @@
 .header-wrapper{
      border-bottom: 1px solid var(--layout-menu-active-bg) !important;
 }
+
+/* 4. 核心按钮样式覆盖 - 注意删掉 :deep */
+/* --- 1. Header 区域的按钮 (保持磨砂透明感) --- */
+.header-wrapper .el-button--small,
+.header-wrapper .el-button.is-circle {
+  background-color: var(--header-btn-bg) !important;
+  border: 1px solid var(--header-btn-border) !important;
+  color: var(--header-btn-text) !important;
+}
+
+.header-wrapper .el-button:hover {
+  background-color: var(--header-btn-border) !important; /* hover 时深一点 */
+}
+
+
+/* --- 2. 内容区域的按钮 (Home 等页面里的按钮) --- */
+/* 假设内容区的主类名是 .content */
+.content .el-button {
+  background-color: var(--content-btn-bg) !important;
+  border: 1px solid var(--content-btn-border) !important;
+  color: var(--content-btn-text) !important;
+  transition: all 0.3s;
+}
+
+.content .el-button:hover {
+  border-color: var(--el-color-primary) !important;
+  color: var(--el-color-primary) !important;
+  background-color: var(--content-btn-bg) !important;
+}
+
+/* 如果是内容区的 Primary 按钮，通常建议保留 Element Plus 原生蓝色，或者也进行自定义 */
+.content .el-button--primary {
+    background-color: var(--el-color-primary) !important;
+    border-color: var(--el-color-primary) !important;
+    color: #ffffff !important;
+}
+
+/* --- 3. 其他全局 Popper 适配保持不变 --- */
+.el-popper.theme-menu-popper {
+  background-color: var(--layout-header-bg) !important;
+  border: 1px solid var(--header-btn-border) !important;
+}

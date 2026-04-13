@@ -13,8 +13,11 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@alova/adapter-axios": "^2.0.18",
     "@element-plus/icons-vue": "^2.3.2",
+    "alova": "^3.5.1",
     "autoprefixer": "^10.4.27",
+    "axios": "^1.15.0",
     "element-plus": "^2.13.6",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
